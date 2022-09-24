@@ -7,7 +7,6 @@ function DarkLightModeSelector() {
     window.matchMedia("(prefers-color-scheme: dark").matches
   ); //return true | false
   const control = useRef();
-  const design = useRef();
   const [modeInput, setModeInput] = useState(darkOrLight);
 
   useEffect(() => {
@@ -20,9 +19,9 @@ function DarkLightModeSelector() {
   useEffect(() => {
     setModeInput(darkOrLight);
     if (modeInput) {
-      control.current.style.left = "70%";
+      control.current.style.left = "60%";
     } else if (!modeInput) {
-      control.current.style.left = "-5%";
+      control.current.style.left = "5%";
     }
   }, [modeInput, darkOrLight]);
 
@@ -32,14 +31,12 @@ function DarkLightModeSelector() {
       theme.style.setProperty("--colorB", "white");
       theme.style.setProperty("--colorW", "black");
       setDarkOrLight(false);
-      design.current.style.color = "black";
     }
     // Dark Mode
     else {
       theme.style.setProperty("--colorB", "black");
       theme.style.setProperty("--colorW", "white");
       setDarkOrLight(true);
-      design.current.style.color = "black";
     }
   }
 
@@ -57,12 +54,12 @@ function DarkLightModeSelector() {
     <div className="main-container-relative">
       <input onChange={toggle} type="checkbox" checked={modeInput} />
       <div className="wrapper">
-        <div className="design" ref={design}>
+        <div className="design">
           <button ref={control} onClick={controlMode} className="togglebtn">
             {darkOrLight ? (
-              <i className="fa-regular fa-sun"></i>
+              <i className="fa-solid fa-sun day"></i>
             ) : (
-              <i className="fa-regular fa-moon"></i>
+              <i className="fa-solid fa-moon night"></i>
             )}
           </button>
           {darkOrLight ? "D" : "L"}

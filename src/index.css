@@ -4,6 +4,8 @@
   --colorG: rgb(20, 232, 20);
   --colorM: rgb(141, 1, 1);
   --colorGrey: rgb(192, 181, 181);
+  --colorLB: rgba(47, 46, 46, 0.745);
+  --colorLO: rgba(255, 196, 18, 0.867);
 }
 *,
 *::after,
@@ -14,9 +16,11 @@ body {
   padding: 0;
   margin: 0;
 }
+
+/*For dark/Light mode toggle */
 .main-container-relative {
-  width: 9%;
-  height: 3%;
+  width: 70px;
+  height: 40px;
   position: absolute;
   right: 10%;
   top: 5%;
@@ -27,7 +31,7 @@ body {
   background-color: inherit;
 }
 .wrapper {
-  width: 80%;
+  width: 100%;
   height: 80%;
   position: absolute;
   display: flex;
@@ -43,32 +47,46 @@ body {
 .design {
   border: 1px solid var(--colorW);
   width: 100%;
-  height: 50%;
+  height: 100%;
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.792);
   z-index: 10; 
   position: relative;
-  font-size: 0.6rem;
+  font-size: 1.2rem;
+  font-family: sans-serif;
   font-weight: bold;
   text-align: center;
-  color: var(--colorB);
-  /* line-height: 8px; */
+  color: var(--colorLB);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .togglebtn {
-  width: 35%;
-  height: 200%;
+  width: 25px;
+  height: 25px;
   position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-flow: row wrap;
   left: -5%;
-  top: -40%;
-  border-radius: 60px;
+  border-radius: 50%;
   background-color: var(--colorW);
   border: 1px solid var(--colorW);
   transition: left 1s;
+  cursor: pointer;
 }
+.fa-solid {
+    font-size: 1.2rem;
+}
+.day {
+  color: var(--colorLO);
+}
+.night {
+  color: var(--colorG);
+}
+
+/*Design for body of stopwatch */
 
 .App {
   background-color: var(--colorB);
@@ -77,7 +95,6 @@ body {
 }
 .background-logos {
   position: absolute;
-  /* border: 1px solid black; */
   top: 25%;
   left: 10%;
   width: 80%;
@@ -214,12 +231,7 @@ body {
 .lapbtn {
   background-color: var(--colorGrey);
 }
-.fa-moon, .fa-sun {
-  color: var(--colorG);
-  font-size: 0.7rem;
-  position: relative;
-  top: 5%;
-}
+
 input {
   visibility: hidden;
 }
@@ -228,22 +240,4 @@ input {
   .lapContainer {
     height: 45vh;
   }
-}
-@media(min-width: 550px){
-  .main-container-relative {
-    width: 7%;
-    height: 3%;
-  } 
-}
-@media(min-width: 800px){
-  .main-container-relative {
-    width: 4%;
-    height: 3%;
-  } 
-}
-@media(min-width: 1000px){
-  .main-container-relative {
-    width: 4%;
-    height: 5.5%;
-  } 
 }
